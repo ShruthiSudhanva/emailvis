@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Stack</title>
+        <script src="http://d3js.org/d3.v2.js"></script>  
+        <link rel="stylesheet" href="css/bootstrap.css">  
+        <style type="text/css">
+
+        svg {
+          width: 960px;
+          height: 500px;
+          border: solid 1px #ccc;
+          font: 10px sans-serif;
+          shape-rendering: crispEdges;
+        }
+        div.tooltip {   
+          position: absolute;           
+          text-align: center;           
+          width: 60px;                  
+          height: 28px;                 
+          padding: 2px;             
+          font: 12px sans-serif;        
+          background: lightsteelblue;   
+          border: 0px;      
+          border-radius: 8px;           
+          pointer-events: none;         
+        }
+        </style>             
+    </head>
+    <body>
+      <div class="container" style="padding-top: 60px">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                      Filter <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <ul class="nav nav-list">
+                      <li class="nav-header">EMOTION</li>
+                      <li><button class="btn btn-mini btn-block" id="button1" style="background-color:#005DFF;">Very happy</button></li>
+                      <li><button class="btn btn-mini btn-block" id="button2" style="background-color:#0098E8;">Happy</button></li>
+                      <li><button class="btn btn-mini btn-block" id="button3" style="background-color:#00F1FF;">Neutral</button></li>
+                      <li><button class="btn btn-mini btn-block" id="button4" style="background-color:#10E8B1;">Sad</button></li>
+                      <li><button class="btn btn-mini btn-block" id="button5" style="background-color:#03FF6F;">Very Sad</button></li>
+                      <li><button class="btn btn-mini btn-block" id="button6" style="background-color:lightgray;">All</button></li>
+                      <li class="nav-header"><a href="#">TO</a></li>
+                      <li>
+                        <input type="email" class="form-control" id="toEmail" placeholder="Enter email">
+                        <button type="button" class="btn btn-primary tosubmit">Submit</button>
+                      </li>
+                      <li class="nav-header"><a href="#">FROM</a></li>
+                      <li>
+                        <input type="email" class="form-control" id="fromEmail" placeholder="Enter email">
+                        <button type="button" class="btn btn-primary fromsubmit">Submit</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+            </div>
+            <div id="viz" class="col-md-8"></div>
+          </div>
+        </div>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="js/json/data.js"></script>
+        <script src="js/jsonfilter.js"></script>
+        <script src="js/main.js"></script>
+        <script src="day_view.js"></script>
+
+    </body>
+</html>
