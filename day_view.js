@@ -1,5 +1,8 @@
 function loadData(year, month, day, d)
 {
+  /*
+  Load data from data.js json file and filter
+  Convert to matrix format to use in chart*/
             num_of_hours = 24;
             var hours = {};
             for (var i = 1; i <= num_of_hours; i++) {
@@ -37,6 +40,8 @@ function loadData(year, month, day, d)
 
 function renderDayView(year, month, day,sentiment)
 {
+
+/* d3js chart code*/  
             var w = 960,
             h = 500,
             p = [20, 50, 30, 20]
@@ -113,16 +118,15 @@ function renderDayView(year, month, day,sentiment)
                         .enter().append("svg:g")
                           .attr("class", "rule")
                           .attr("transform", function(d) { return "translate(0," + -y(d) + ")"; });
-            /*rule.append("svg:line")
-                  .attr("x2", w - p[1] - p[3])
-                  .style("stroke", function(d) { return d ? "#fff" : "#000"; })
-                  .style("stroke-opacity", function(d) { return d ? .7 : null; });*/
-
             rule.append("svg:text")
                   .attr("x", w - p[1] - p[3] + 6)
                   .attr("dy", ".35em")
                   .text(d3.format(",d"));
 }
+
+/*
+Funcrions of filter buttons on the left panel.
+*/
 
 $('#button1').on('click', function (e) {
   $("#viz").html("");
@@ -153,18 +157,11 @@ $('#button6').on('click', function (e) {
   $("#viz").html("");
   renderDayView(2013,11,3,jsonFilter);
 })
-$('.tosubmit').click(function() {
+$('.submit').click(function() {
     var email = $('#toEmail').val();
     $("#viz").html("");
     d = jsonFilter.filterSingle(email,"to");
     renderDayView(2013,11,3,d);
 })
-$('.fromsubmit').click(function() {
-    var email = $('#fromEmail').val();
-    $("#viz").html("");
-    d = jsonFilter.filterSingle(email,"from");
-    renderDayView(2013,11,3,d);
-})
-
 
 renderDayView(2013,11,3,jsonFilter);
